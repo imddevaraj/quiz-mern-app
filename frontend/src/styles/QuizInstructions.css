@@ -1,0 +1,54 @@
+/* src/pages/QuizInstructions.css */
+.quiz-instructions {
+    padding: 20px;
+  }
+  
+  .instructions-content {
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .instructions-content h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .instructions-content p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .instructions-content ul {
+    text-align: left;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .instructions-content ul li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 1rem;
+  }
+  
+  .start-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .start-btn:hover {
+    background-color: #0056b3;
+  }
+  

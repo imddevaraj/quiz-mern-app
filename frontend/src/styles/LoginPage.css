@@ -1,0 +1,61 @@
+/* src/pages/LoginPage.css */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Take up full height of the parent container */
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    width: 100%;
+  }
+  .error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px; /* Add some space between the error message and the form */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    font-weight: bold; /* Make the label text bold */
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 600px; /* Set the width to display approximately 60 characters */
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: Arial, sans-serif; /* Ensure a standard font for consistent character width */
+    font-size: 16px;
+  }
+  
+  .btn {
+    width: 150px; /* Consistent button width */
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    font-weight: bold; /* Make the button text bold */
+    font-size: 16px; /* Increase the font size for better readability */
+    margin-top: 10px; /* Add space between the input and the button */
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,16 @@
+/* src/styles/QuizCard.css */
+.quiz-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: left; /* Align text to the left */
+  }
+  
+  .question-text {
+    font-size: 18px;
+    margin-bottom: 12px;
+    text-align: left; /* Align text to the left */
+  }

@@ -1,0 +1,14 @@
+/* src/styles/AnswerOption.css */
+.answer-option {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .answer-option.selected {
+    background-color: #d3f9d8;
+    border-color: #a3e4a1;
+  }

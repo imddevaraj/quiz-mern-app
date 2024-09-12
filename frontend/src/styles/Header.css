@@ -1,0 +1,61 @@
+
+  /* src/components/Header.css */
+.app-header {
+    background-color: #4267B2; /* Facebook-like blue color */
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between; /* Space between left and right content */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .app-logo {
+    height: 40px; /* Adjust the logo size as needed */
+    margin-right: 10px;
+  }
+  
+  .app-title {
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between the email and menu */
+  }
+  
+  .email-display {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .header-menu {
+    display: flex;
+    gap: 15px; /* Space between menu items */
+  }
+  
+  .menu-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-link:hover {
+    color: #d1e7ff;
+  }
+  
