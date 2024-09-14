@@ -1,5 +1,9 @@
+
+
 // src/services/quizService.js
-const API_BASE_URL = 'http://localhost:5000/api/responses';
+import config from "../config";
+const API_BASE_URL = `${config.baseURL}/api/responses`;
+
 
 const getUserResponses = async (email) => {
     try {

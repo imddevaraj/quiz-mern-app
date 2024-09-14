@@ -1,8 +1,8 @@
 
 
 // src/services/quizService.js
-const API_BASE_URL = 'http://localhost:5000/api/quizzes';
-
+import config from "../config";
+const API_BASE_URL = `${config.baseURL}/api/quizzes`;
 const fetchQuiz = async (id) => {
   try{
     

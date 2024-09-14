@@ -15,8 +15,11 @@ const app = express();
 
 /** appliation port */
 const port = process.env.PORT || 5000;
-app.use('/images', express.static('public/images'));
-app.use(cors());
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
+
+app.use(cors({
+    origin: 'http://100.26.197.241:3000' // Replace with your frontend's public IP or domain
+}));
 app.use(bodyParser.json());
 
 // Define routes here
