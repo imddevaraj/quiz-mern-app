@@ -8,7 +8,7 @@ const Header = () => {
   const { user } = useAuth();
   const emailId = user?.emailId;
   const baseURL =  config.baseURL;
-
+  const image = '/images/logo.png'; 
   const imageUrl = `${baseURL}${image}`;
   return (
     <header className="app-header">
