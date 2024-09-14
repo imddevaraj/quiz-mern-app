@@ -15,6 +15,7 @@ const app = express();
 
 /** appliation port */
 const port = process.env.PORT || 5000;
+console.log("__dirname",path.join(__dirname));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 app.use(cors({
