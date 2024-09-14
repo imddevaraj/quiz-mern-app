@@ -1,5 +1,5 @@
 const config = {
-    baseURL: "'http://localhost:5000'",
+    baseURL: "'http://100.26.197.241:5000'",
     corsConfig: ""
   };
   

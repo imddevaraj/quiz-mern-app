@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-
+const path = require('path');
 const quizRoutes = require('./routes/quiz');
 const authRoutes = require('./routes/auth');
 const connect = require('./database/conn');
