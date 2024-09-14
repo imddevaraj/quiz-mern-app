@@ -5,7 +5,7 @@ import '../styles/LoginPage.css';
 import LoginService from '../services/LoginService';
 import ResponseService from '../services/ResponseService';
 function LoginPage() {
-  const [emailId, setEmailInput] = useState('devaraj.durairaj@hidglobal.com');
+  const [emailId, setEmailInput] = useState();
   const [errorMessage, setErrorMessage] = useState('');
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();

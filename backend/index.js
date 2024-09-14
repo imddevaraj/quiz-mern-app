@@ -1,6 +1,8 @@
 // server/index.js
-
+require('dotenv').config();
+const session = require('express-session');
 const express = require('express');
+const MongoStore = require('connect-mongo');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
@@ -19,9 +21,22 @@ console.log("__dirname",path.join(__dirname));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 app.use(cors({
-    origin: 'http://100.26.197.241:3000' // Replace with your frontend's public IP or domain
+    origin: process.env.CORS_ORIGIN // Replace with your frontend's public IP or domain
 }));
 app.use(bodyParser.json());
+
+app.use(session({
+    secret: process.env.SECERT_KEY, // Replace with a strong secret key
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+      collectionName: 'sessions',
+    }),
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24, // 1 day
+    },
+  }));
 
 // Define routes here
 app.use('/api/auth', authRoutes);

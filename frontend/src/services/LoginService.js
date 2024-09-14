@@ -1,10 +1,13 @@
 // src/services/LoginService.js
-
 import config from "../config";
+
+
 const API_BASE_URL = `${config.baseURL}/api/auth`;
+
 const authenticate = async (emailId) => {
+  
     try {
-      const response = await fetch(`${API_BASE_URL}`, {
+      const response = await fetch(`${API_BASE_URL}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -24,7 +27,7 @@ const authenticate = async (emailId) => {
       throw error;
     }
   };
-  
-  export default {
-    authenticate,
-  };
+
+export default {authenticate };
+
+    
