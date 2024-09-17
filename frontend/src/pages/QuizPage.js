@@ -96,7 +96,8 @@ const QuizPage = ({}) => {
     const correctAnswer = quizData.questions.find((question) => question._id === questionId).answer;
   
     const isCorrect = userAnswer.trim() === correctAnswer.trim();
-    
+    const isAnswered = userAnswer.trim() !== '';
+   
     setAnswerStatus((prevStatus) => ({
       ...prevStatus,
       [questionId]: isCorrect?'correct':'incorrect',
@@ -130,12 +131,16 @@ const QuizPage = ({}) => {
   
     };
      try {
-      console.log(payload)
       const result = await quizService.saveResponse(payload);
-      if(status === "final" && result.message === 'Response saved successfully'){
-        alert('Thank you for attending the quiz!');
-        navigate('/'); // Redirect to login page
-      }
+
+      if (result.message === 'Response saved successfully') {
+            if (status === "final") {
+                alert('Thank you for attending the quiz!');
+                navigate('/'); // Redirect to login page
+            } else {
+                moveToNextQuestion(); // Call the function to move to the next question
+            }
+        }
       
     } catch (error) {
       console.error('Failed to submit quiz:', error);
@@ -143,7 +148,17 @@ const QuizPage = ({}) => {
     }
 
   };
- 
+  const moveToNextQuestion = () => {
+    setCurrentQuestionIndex((prevIndex) => {
+      const nextIndex = prevIndex + 1;
+      if (nextIndex < quizData.questions.length) {
+        return nextIndex;
+      } else {
+        setAllQuestionsAnswered(true);
+        return prevIndex; // Stay on the last question if all are answered
+      }
+    });
+};
 
   const handleSubmitQuiz = async () => {
     if(quizData.quizType === 'q'){
@@ -169,10 +184,7 @@ const QuizPage = ({}) => {
             responses :transformedAnswers
         };
         try {
-          
-          console.log('Submitting quiz:', payload);
           const result = await quizService.submitQuiz(payload);
-          console.log('Quiz submitted successfully:', result);
         } catch (error) {
           console.error('Failed to submit quiz:', error);
         }
