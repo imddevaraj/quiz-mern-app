@@ -11,6 +11,8 @@ const Header = () => {
   const baseURL =  config.baseURL;
   const image = '/images/logo.png'; 
   const imageUrl = `${apiUrl}${image}`;
+  console.log(apiUrl)
+  console.log(imageUrl)
   return (
     <header className="app-header">
       <div className="header-content">
