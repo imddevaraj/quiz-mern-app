@@ -9,10 +9,10 @@ router.post('/login', async (req, res) => {
   try{
     let user = await userController.getUser(emailId);
     if (user) {
-      req.session.userId = user._id;
+  
     } else {
       user = await userController.createUser(emailId);
-      req.session.userId = user._id;
+    
     }
     console.log(user)
     res.status(200).json({ name: user.name, emailId: user.emailId });
