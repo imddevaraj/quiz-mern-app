@@ -17,6 +17,7 @@ const QuizPage = ({}) => {
   const {user} = useContext(AuthContext);
   const [timer, setTimer] = useState(0);
   const {selectedAnswers, submittedAnswers,handleAnswerSubmission,saveSelectedAnswers} = useContext(QuizContext);
+  const {setAllQuestionsAnswered}= useState(false);
   const [responses, setResponses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
