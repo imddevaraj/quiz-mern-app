@@ -1,6 +1,5 @@
 
 import React, { useContext, useState,useEffect } from 'react';
-import config from '../config'; // Import the configuration file
 import { QuizContext } from '../context/QuizContext';
 import '../styles/ConnexionCard.css';
 const ConnexionCard = ({ question,response, handleSubmitCard,handleInputChange }) => {
@@ -26,7 +25,8 @@ const ConnexionCard = ({ question,response, handleSubmitCard,handleInputChange }
     setShowHint(!showHint); // Toggle hint visibility
   };
 
-  const baseURL =  config.baseURL; 
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   return (
     <div>
     <div className="quiz-card">
@@ -34,7 +34,7 @@ const ConnexionCard = ({ question,response, handleSubmitCard,handleInputChange }
       
       <div className="image-container">
             {question.images.map((image, index) => {
-            const imageUrl = `${baseURL}${image}`;
+            const imageUrl = `${apiUrl}${image}`;
             return(
                     <img key={index} 
                         src={imageUrl }
