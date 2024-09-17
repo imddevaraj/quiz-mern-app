@@ -9,12 +9,14 @@ const fetchQuiz = async (id) => {
   try{
     
   const response = await fetch(`${API_BASE_URL}/${id}`); // Assuming quiz ID is 1
+  const status = response.status;
   if(!response.ok){
     throw new Error("HTTP Error! Status: " + response.status);
   }
-  const data = await response.json();
   
-  return data;
+  const data = await response.json();
+
+  return {data, status};
   } catch(error){
     console.error("Unable to Fetch Error:" ,error);
     throw error
@@ -55,14 +57,13 @@ const saveResponse = async (payload) => {
       },
       body: JSON.stringify(payload),
   });
-  
+  const httpStatus = response.status;
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
-
   const data = await response.json();
 
-  return data;
+  return {data, httpStatus};
 }catch(error){
   console.error("Unable to Submit Error:" ,error);
   throw error

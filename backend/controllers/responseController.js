@@ -59,7 +59,7 @@ const saveResponse = async (req, res) => {
       existingResponse.responses = responses;
       existingResponse.score = score;
       await existingResponse.save();
-      res.status(200).json({ message: 'Response updated successfully' });
+      res.status(200).json({ statusCode:200 ,message: 'Response updated successfully' });
     } else {
       // Create a new response
       const newResponse = new Response({
@@ -71,7 +71,7 @@ const saveResponse = async (req, res) => {
       });
     console.log("Saving response:",newResponse);
     await newResponse.save();
-    res.status(201).json({ message: 'Response saved successfully' });
+    res.status(200).json({ statusCode:200, message: 'Response saved successfully' });
     }
   } catch (error) {
     console.error('Error saving response:', error);

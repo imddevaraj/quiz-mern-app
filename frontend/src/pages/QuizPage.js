@@ -62,7 +62,8 @@ const QuizPage = ({}) => {
   }, []);
   const fetchQuizQuestions = async () => {
     try {
-      const quizData = await quizService.fetchQuiz();
+      const { data: quizData, status }  = await quizService.fetchQuiz();
+
       return quizData;
     } catch (err) {
       setError(err.message);
@@ -132,13 +133,14 @@ const QuizPage = ({}) => {
   
     };
      try {
-      const result = await quizService.saveResponse(payload);
-
-      if (result.message === 'Response saved successfully') {
+      const {result,httpStatus} = await quizService.saveResponse(payload);
+      
+      if(httpStatus===200){
             if (status === "final") {
                 alert('Thank you for attending the quiz!');
                 navigate('/'); // Redirect to login page
             } else {
+                console.log("Moving to next question");
                 moveToNextQuestion(); // Call the function to move to the next question
             }
         }
@@ -150,13 +152,14 @@ const QuizPage = ({}) => {
 
   };
   const moveToNextQuestion = () => {
+    
     setCurrentQuestionIndex((prevIndex) => {
       const nextIndex = prevIndex + 1;
+ 
       if (nextIndex < quizData.questions.length) {
         return nextIndex;
-      } else {
-        setAllQuestionsAnswered(true);
-        return prevIndex; // Stay on the last question if all are answered
+      }else{
+        return prevIndex;
       }
     });
 };

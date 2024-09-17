@@ -19,7 +19,7 @@ console.log("__dirname",path.join(__dirname));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 console.log("Cors Origin",process.env.CORS_ORIGIN);
 app.use(cors({
-	origin: 'http://100.26.197.241:3000' // Replace with your frontend's public IP or domain
+	origin: `${process.env.CORS_ORIGIN}` // Replace with your frontend's public IP or domain
 }));
 app.use(bodyParser.json());
 
