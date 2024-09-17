@@ -2,17 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 import { useAuth } from '../context/AuthContext';
-import config from '../config'; // Import the configuration file
-
 const apiUrl = process.env.REACT_APP_API_URL;
 const Header = () => {
   const { user } = useAuth();
   const emailId = user?.emailId;
-  const baseURL =  config.baseURL;
   const image = '/images/logo.png'; 
   const imageUrl = `${apiUrl}${image}`;
-  console.log(apiUrl)
-  console.log(imageUrl)
   return (
     <header className="app-header">
       <div className="header-content">

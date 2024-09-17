@@ -1,8 +1,10 @@
 
 
 // src/services/quizService.js
-import config from "../config";
-const API_BASE_URL = `${config.baseURL}/api/quizzes`;
+
+
+const apiUrl = process.env.REACT_APP_API_URL;
+const API_BASE_URL = `${apiUrl}/api/quizzes`;
 const fetchQuiz = async (id) => {
   try{
     

@@ -1,8 +1,8 @@
 // src/services/LoginService.js
-import config from "../config";
 
 
-const API_BASE_URL = `${config.baseURL}/api/auth`;
+const apiUrl = process.env.REACT_APP_API_URL;
+const API_BASE_URL = `${apiUrl}/api/auth`;
 
 const authenticate = async (emailId) => {
   

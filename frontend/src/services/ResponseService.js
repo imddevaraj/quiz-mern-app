@@ -1,8 +1,9 @@
 
 
 // src/services/quizService.js
-import config from "../config";
-const API_BASE_URL = `${config.baseURL}/api/responses`;
+
+const apiUrl = process.env.REACT_APP_API_URL;
+const API_BASE_URL = `${apiUrl}/api/responses`;
 
 
 const getUserResponses = async (email) => {
