@@ -38,23 +38,29 @@ const submitResponseForQuiz = async (req, res) => {
         continue;
       }
       const correctAnswerId = question.answerId.toString();
-      if (correctAnswerId && response.selectedAnswers.map(id => id.toString()).includes(correctAnswerId)) {
+      const selectedAnswerIds = response.selectedAnswers.map(answer => answer.id.toString());
+
+      console.log("Correct Answer ID:",correctAnswerId);
+      console.log("Selected Answers:",response.selectedAnswers);
+      if (correctAnswerId && selectedAnswerIds.includes(correctAnswerId)) {
         score += 1;
-        answers.push({
-          id: question.id,
-          answer: question.answer,
-          answerId: question.answerId,
-        })
+      
       }
+      answers.push({
+        qid: question.id,
+        selectedAnswer: selectedAnswerIds,
+        answerId: question.answerId,
+      })
      
    // Add to answers array
      
     }
-     
+     console.log("Answers:",answers);
     const newResponse = new McqResponse({
       user,
       quiz,
       mcqresponses:answers,
+      timeLeft: 0,
       score, // Save the score
       status: 'C'
     });

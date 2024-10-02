@@ -11,19 +11,24 @@ const mcqResponseSchema = new mongoose.Schema({
   },
   mcqresponses: [
     {
-      id: { type: mongoose.Schema.Types.ObjectId, ref: 'Question' },
-      selectedAnswers: [
-        {
-          answer: String
-        }
-      ],
-      questionId:String,
+      qid: {
+        type: String, // Change to String
+        required: true
+      },
+      selectedAnswer: [{
+        type: String, // Change to String
+        required: true
+      }],
+      answerId: {
+        type: String, // Change to String
+        required: true
+      }
   
     }
   ],
   score: Number,
   status: String,
-  timeleft: Number,
+  timeLeft: Number,
 });
 
 module.exports = mongoose.model('McqResponse', mcqResponseSchema);

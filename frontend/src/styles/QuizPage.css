@@ -1,5 +1,26 @@
 
-
+  .quiz-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    
+  }
+  .quiz-page-header-container {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+    width: 800px; /* Set a fixed width */
+    max-width: 100%; /* Ensure it doesn't exceed the screen width */
+    position: relative; /* Position relative to place the timer */
+  }
+  
+  .timer {
+    
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
 .navigation-container {
   margin-top: 20px;
   display: flex;
@@ -64,7 +85,10 @@
     background-color: lightcoral;
     color: white;
   }
-
+  .nav-button.answered {
+    background-color: green;
+    color: white;
+  }
 .confirm-button, .cancel-button .submit-button{
     padding: 10px 20px;
     font-size: 16px;
@@ -96,9 +120,5 @@
   }
  
   
-  .timer-container {
-    top: 70px;
-    text-align: left;
-  }
   
 
