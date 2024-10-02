@@ -30,18 +30,24 @@ function LoginPage() {
         id: user.id,
       });
       if(user){
-          const userResponses = await ResponseService.getUserResponses(user.emailId); // Fetch user responses
-          if(userResponses) {
-            setResponses(userResponses.responses); // Populate responses in the state
-            if(userResponses.status==="final"){
-              alert("You have already completed the quiz. ");
-            }else{
-            navigate('/quiz', { state: { responses: userResponses.responses , user:userResponses.user} });
+        const {httpStatus,mcqresponses} = await ResponseService.getMcqResponses(user.emailId); // Fetch user responses
+          console.log("MCQ Responses:",mcqresponses);
+          console.log("HTTP Status:",httpStatus);
+          if(httpStatus===404) {
+            setResponses([]);
+            navigate('/quiz-instructions');
+          }else if(httpStatus===200){
+            if (mcqresponses && mcqresponses.length > 0) {
+              alert("You have already completed the quiz.");
+              navigate('/'); // Redirect to home page
+            } else {
+              setResponses([]);
+              navigate('/quiz-instructions');
             }
-        }else{
-          setResponses([]);
-          navigate('/quiz-instructions');
-        }
+          }else{
+            alert("You have already completed the quiz.");
+            navigate('/'); // Redirect to home page
+          }
       }else{
         setResponses([]);
        navigate('/quiz-instructions');

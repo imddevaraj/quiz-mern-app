@@ -9,6 +9,6 @@ router.post('/', quizController.createQuiz);
 router.put('/:id', quizController.updateQuiz);
 router.delete('/:id', quizController.deleteQuiz);
 router.post('/save', responseController.saveResponse);
-
+router.post('/savemcq', responseController.submitResponseForQuiz);
 
 module.exports = router;
