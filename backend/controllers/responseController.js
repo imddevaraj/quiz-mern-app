@@ -9,7 +9,7 @@ const { ContractMissingDeployDataError } = require('web3');
 const ObjectId = mongoose.Types.ObjectId;
 
 const submitResponseForQuiz = async (req, res) => {
-  const { user, quiz, mcqresponses} = req.body;
+  const { user, quiz, mcqresponses,timeLeft} = req.body;
   console.log('Request body for Response:', req.body);
   try{
     let score = 0;
@@ -60,7 +60,7 @@ const submitResponseForQuiz = async (req, res) => {
       user,
       quiz,
       mcqresponses:answers,
-      timeLeft: 0,
+      timeLeft,
       score, // Save the score
       status: 'C'
     });

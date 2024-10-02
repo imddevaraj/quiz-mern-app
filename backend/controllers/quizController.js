@@ -18,6 +18,7 @@ exports.getQuiz = async (req, res) => {
         const correctOptions = question.options.filter(option => option.isCorrect);
         question.hasMultipleAnswer = correctOptions.length > 1;
         question.answer='';
+        question.answerId='';
       });
     }
     quiz.maxTimeLimit = 1200;
